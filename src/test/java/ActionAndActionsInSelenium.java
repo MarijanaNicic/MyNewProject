@@ -1,31 +1,17 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class ActionAndActionsInSelenium {
-
-        WebDriver driver;
-
-        @BeforeMethod
-        public void setUp ()
-        {
-            System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
-            driver = new ChromeDriver();
-            driver.manage().window().maximize();
-            driver.get("https://www.google.com");
-        }
-
+public class ActionAndActionsInSelenium extends BaseTest{
 
         @Test
         public void enterAllCaps_Action ()
         {
+            driver.get("https://www.google.com");
+
             WebElement searchBox = driver.findElement(By.name("q"));
 
             Actions act = new Actions (driver);
@@ -40,6 +26,8 @@ public class ActionAndActionsInSelenium {
         @Test
         public void enterAllCaps_Actions ()
         {
+            driver.get("https://www.google.com");
+
             WebElement searchBox = driver.findElement(By.name("q"));
 
             Actions act = new Actions (driver);
@@ -51,12 +39,6 @@ public class ActionAndActionsInSelenium {
             act.keyDown(searchBox, Keys.SHIFT).sendKeys(" Works Too").keyUp(searchBox, Keys.SHIFT).perform();
         }
 
-        @AfterMethod
-        public void tearDown () throws InterruptedException
-        {
-        Thread.sleep(2000);
-        driver.quit();
-        }
 
 }
 

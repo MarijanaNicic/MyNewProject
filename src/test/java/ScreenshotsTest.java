@@ -1,26 +1,12 @@
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.io.FileHandler;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.File;
 import java.io.IOException;
 
-public class ScreenshotsTest {
-
-    WebDriver driver;
-
-    @BeforeTest
-            public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-
-    }
+public class ScreenshotsTest extends BaseTest{
 
     @Test
     public void takeGreyHoundScreenshot(){
@@ -39,13 +25,5 @@ public class ScreenshotsTest {
         }
         System.out.println("Screenshot Located At "+ destination);
     }
-    @AfterTest
-    public void tearDown ()
-    {
-        driver.quit();
-    }
-
-
-
 
 }

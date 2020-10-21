@@ -1,23 +1,9 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class DragSliderHorizontal {
-    WebDriver driver;
-
-    @BeforeMethod
-    public void setUp ()
-    {
-        System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("https://rangeslider.js.org/");
-    }
+public class DragSliderHorizontal extends BaseTest{
 
     @Test
     public void dragSliderLeft ()
@@ -45,10 +31,4 @@ public class DragSliderHorizontal {
         System.out.println("What Is The Output After Dragging Right? " + output.getText());
     }
 
-    @AfterMethod
-    public void tearDown () throws InterruptedException
-    {
-        Thread.sleep(1000);
-        driver.quit();
-    }
 }
