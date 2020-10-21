@@ -3,6 +3,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.io.FileHandler;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -38,7 +39,11 @@ public class ScreenshotsTest {
         }
         System.out.println("Screenshot Located At "+ destination);
     }
-
+    @AfterTest
+    public void tearDown ()
+    {
+        driver.quit();
+    }
 
 
 
